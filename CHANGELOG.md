@@ -1,4 +1,13 @@
-# 2.0.0 (unreleased)
+# 2.1.0
+## New features:
+- Add support for `display` parameter to replace `low_bandwidth` option and additional options for `lite` and `waf`
+- Add support for `username` parameter to pre-fill the username in the login form if it is known
+
+## Fixes:
+- refactor code to remove intermediate directory in lib
+
+
+# 2.0.0
 
 ## **Breaking Changes**
 - Drop support for Node versions before 4.x
@@ -12,6 +21,7 @@
 
 ## Fixes:
 - Example app updated to current Express and other dependencies
+
 
 # 1.0.0
 
