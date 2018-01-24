@@ -3,8 +3,9 @@
 const chai = require('chai');
 chai.use(require('chai-passport-strategy'));
 const expect = chai.expect;
+const url = require('url');
 
-const FamilySearchStrategy = require('../lib/passport-familysearch/strategy');
+const FamilySearchStrategy = require('../lib/strategy');
 const InternalOAuthError = require('passport-oauth2').InternalOAuthError;
 
 describe('FamilySearchStrategy', function () {
@@ -116,4 +117,30 @@ describe('FamilySearchStrategy', function () {
     });
   });
 
+  describe('with parameters', function () {
+    let redirect, params;
+    const USERNAME = 'l()ñg, ç;®@#? us=rn@m()';
+
+    before(function (done) {
+      chai.passport.use(strategy)
+        .redirect(function (redirectUrl, status) {
+          redirect = redirectUrl;
+          params = url.parse(redirectUrl, true).query;
+          done();
+        })
+        .authenticate({display: 'wap', username: USERNAME});
+    });
+
+    it('should pass through display option', function () {
+      expect(params).to.have.property('display', 'wap');
+      expect(params).to.not.have.property('referrer');
+    });
+
+    it('should pass through username option', function () {
+      expect(redirect).to.include(encodeURIComponent(USERNAME));
+      expect(params.username).to.eql(USERNAME);
+      expect(params).to.not.have.property('userName');
+    });
+
+  });
 });

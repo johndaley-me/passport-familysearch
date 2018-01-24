@@ -52,6 +52,24 @@ application:
         // Successful authentication, redirect home.
         res.redirect('/');
       });
+      
+The `authenticate` method takes an optional parameter for additional configuration. In addition
+to the parameters supported by passport, these additional options are available:
+
+- `display` (optional): if you specify `lite` or `wap` the sign in page will be displayed 
+in a simplified format for browsers with limited capabilities or bandwidth.
+See http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest 
+
+
+- `username` (optional): will pre-fill the username of the sign in form     
+
+    
+    passport.authenticate('familysearch', {
+      failureRedirect: '/login',
+      display: 'lite', 
+      username: 'fred'
+    })
+    
 
 ## Examples
 

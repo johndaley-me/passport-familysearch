@@ -5,8 +5,10 @@
 - Drop support for OAuth 1(a) Legacy strategy
 
 ## New features:
-- Add flag for low bandwidth mobile login
-- Add flag to help with post-registration login
+- Support custom client signer if provided 
+- Add `display` parameter for customizing display of sign in page 
+- Add `username` parameter to help with post-registration login
+- Add `icid` parameter for analytics
 
 ## Fixes:
 - Example app updated to current Express and other dependencies

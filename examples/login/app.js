@@ -3,7 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const session = require("express-session");
+const session = require('express-session');
 
 const passport = require('passport');
 const FamilySearchStrategy = require('passport-familysearch').Strategy;
