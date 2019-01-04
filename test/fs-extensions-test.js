@@ -45,11 +45,15 @@ describe('FamilySearchStrategy familysearch.org-specific extensions', function (
         params = url.parse(redirectUrl, true).query;
         done();
       })
-      .authenticate({referrer: 'example.com', display: 'lite', userName: USERNAME, icid: 'abc.123-my_cid'});
+      .authenticate({referrer: 'example.com', display: 'lite', userName: USERNAME, icid: 'abc.123-my_cid', flow: 'foo'});
   });
 
   it('should pass through referrer option', function () {
     expect(params).to.have.property('referrer', 'example.com');
+  });
+
+  it('should pass through flow option', function () {
+    expect(params).to.have.property('flow', 'foo');
   });
 
   it('should pass through icid option', function () {
