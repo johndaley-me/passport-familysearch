@@ -1,3 +1,7 @@
+# 2.1.2
+## New features:
+- Add support for `prompt` parameter
+
 # 2.1.1
 ## New features:
 - Add support for `flow` parameter
