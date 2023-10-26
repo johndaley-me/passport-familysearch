@@ -75,8 +75,4 @@ describe('FamilySearchStrategy familysearch.org-specific extensions', function (
     expect(params).to.have.property('prompt', 'login');
   });
 
-  it('should set client_secret with custom signing function', function () {
-    expect(params.client_secret).to.eql('mockSignedValue');
-  });
-
 });

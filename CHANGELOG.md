@@ -1,3 +1,7 @@
+# 2.1.3
+## Fixed
+- Remove extra query params from authorizationURL
+
 # 2.1.2
 ## New features:
 - Add support for `prompt` parameter
